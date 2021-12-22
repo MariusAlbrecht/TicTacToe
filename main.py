@@ -17,8 +17,8 @@ class TikTakToe:
         
         printDefault = "     |     |     \n  1  |  2  |  3  \n-----|-----|-----\n  4  |  5  |  6  \n-----|-----|-----\n  7  |  8  |  9  \n     |     |     "
         
-        if(self.fields[int(position)] == None):
-            self.fields[int(position)] = player
+        if(self.fields[int(position)-1] == None):
+            self.fields[int(position)-1] = player
             printDefault = printDefault.replace(position, player)
             return printDefault
         else:
@@ -32,8 +32,10 @@ class Game:
     
     def getInput(self):
         userInput = input("Where do y'wanna go " + self.player + " ? ")
-        if(self.ttt.fields[int(userInput)] != None):
+        if(int(userInput)>8):
             self.getInput(self)
+        elif(self.ttt.fields[int(userInput)-1] != None):
+                self.getInput(self)
         else:
             return userInput
         
