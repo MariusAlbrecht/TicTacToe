@@ -59,7 +59,7 @@ class Game:
         if(self.player == 'X'):
             self.player = 'O'
         else:
-            self.player = 'X'
+            self.player = 'X' #deine Mutter
     
     def loop(self):
         while(self.won == False):
